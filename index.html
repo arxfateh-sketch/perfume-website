@@ -3,330 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA PARFUMS | Haute Parfumerie & Custom Blends</title>
+    <title>AURA PARFUMS | Haute Parfumerie</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        amber: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        },
                         gold: {
-                            300: '#fde047',
-                            400: '#facc15',
-                            500: '#eab308',
-                            600: '#ca8a04',
-                        }
+                            light: '#F3E5AB',
+                            DEFAULT: '#D4AF37',
+                            dark: '#AA7C11',
+                            rose: '#B76E79'
+                        },
+                        darkBg: '#0B0B0C',
+                        darkCard: '#141416',
+                        darkElevated: '#1D1D21'
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0b0b0f;
-            color: #f3f4f6;
+            background-color: #0B0B0C;
+            color: #E5E7EB;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
         }
-        h1, h2, h3, h4, .font-serif {
-            font-family: 'Playfair Display', serif;
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
         }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #fff3c4 0%, #eab308 50%, #ca8a04 100%);
+
+        /* Frosted Glass Effect */
+        .glass-panel {
+            background: rgba(20, 20, 22, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .glass-panel-gold {
+            background: rgba(212, 175, 55, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF0B0 0%, #D4AF37 50%, #996515 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .gold-border {
-            border-image: linear-gradient(to right, #ca8a04, #eab308, #ca8a04) 1;
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .glass-panel {
-            background: rgba(18, 18, 26, 0.75);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(234, 179, 8, 0.15);
+        ::-webkit-scrollbar-track {
+            background: #0B0B0C;
         }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+        ::-webkit-scrollbar-thumb {
+            background: #2A2A30;
+            border-radius: 4px;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #0b0b0f;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #27273a;
-            border-radius: 3px;
+
+        /* Glow Animations */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.08); }
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #ca8a04;
+        .animate-glow {
+            animation: pulseGlow 8s infinite ease-in-out;
+        }
+
+        /* Bottle Engraving Preview Font */
+        .engraving-font {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
         }
     </style>
 </head>
-<body class="bg-black text-gray-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black custom-scrollbar">
+<body class="antialiased selection:bg-gold selection:text-black">
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 text-amber-200 text-xs py-2 px-4 text-center tracking-widest uppercase border-b border-amber-500/20 flex justify-between items-center px-6">
-        <span class="hidden md:inline"><i class="fa-solid font-sparkles text-amber-400 mr-2"></i>Complimentary Luxury Samples with Every Haute Order</span>
-        <span class="mx-auto md:mx-0 font-medium">Bespoke Engraving Available • Express Wholesale & Retail Delivery</span>
-        <span class="hidden md:inline text-amber-400/80"><i class="fa-solid fa-phone mr-1"></i> Helpline: +92 300 1234567</span>
-    </div>
-
-    <!-- MAIN NAVBAR -->
-    <nav class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-amber-500/20 px-4 md:px-8 py-4 transition-all">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 to-amber-300 flex items-center justify-center text-black font-serif text-xl font-bold shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
-                    A
-                </div>
-                <div>
-                    <span class="text-2xl font-serif font-bold tracking-wider text-white group-hover:text-amber-400 transition-colors">AURA</span>
-                    <span class="text-xs block text-amber-500/80 tracking-[0.3em] font-light uppercase">PARFUMS</span>
-                </div>
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 w-full z-40 transition-all duration-300 glass-panel border-b border-gold/20 px-4 md:px-12 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-8">
+            <a href="#" class="text-xl md:text-2xl font-cinzel font-bold tracking-widest text-gold-gradient flex items-center gap-2">
+                <i class="fa-solid fa-gem text-gold text-lg"></i>
+                AURA <span class="text-xs font-sans tracking-widest text-gray-400 block -mt-1 font-normal">PARFUMS</span>
             </a>
-
-            <!-- Navigation Links -->
-            <div class="hidden lg:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium text-gray-300">
-                <a href="#catalog" class="hover:text-amber-400 transition-colors">Collection</a>
-                <a href="#quiz" class="hover:text-amber-400 transition-colors">Scent Finder</a>
-                <a href="#studio" class="hover:text-amber-400 transition-colors">Custom Engraving</a>
-                <a href="#about" class="hover:text-amber-400 transition-colors">House Story</a>
+            <div class="hidden md:flex space-x-6 text-xs uppercase tracking-widest font-medium">
+                <a href="#collections" class="hover:text-gold transition-colors">Collections</a>
+                <a href="#blender" class="hover:text-gold transition-colors text-gold flex items-center gap-1">
+                    <i class="fa-solid fa-flask text-xs"></i> Custom Studio
+                </a>
+                <a href="#quiz" onclick="openQuizModal()" class="hover:text-gold transition-colors">Scent Quiz</a>
+                <a href="#about" class="hover:text-gold transition-colors">Heritage</a>
             </div>
+        </div>
 
-            <!-- Action Buttons -->
-            <div class="flex items-center space-x-4">
-                <!-- Admin Login Button -->
-                <button onclick="toggleAdminModal()" class="px-3 py-1.5 rounded-full border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 text-xs tracking-wider uppercase font-medium flex items-center transition-all">
-                    <i class="fa-solid fa-user-gear mr-1.5"></i> <span id="adminBtnText">Admin Portal</span>
-                </button>
-
-                <!-- Cart Button -->
-                <button onclick="toggleCartDrawer()" class="relative p-2 text-gray-200 hover:text-amber-400 transition-colors">
-                    <i class="fa-solid fa-bag-shopping text-xl"></i>
-                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-amber-500 text-black font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
-                </button>
-            </div>
+        <div class="flex items-center space-x-4">
+            <!-- Admin Portal Button -->
+            <button onclick="toggleAdminModal()" class="text-xs uppercase tracking-wider text-gold border border-gold/40 px-3 py-1.5 rounded-full hover:bg-gold/10 transition flex items-center gap-1.5">
+                <i class="fa-solid fa-user-gear text-xs"></i> Admin Panel
+            </button>
+            <button onclick="openQuizModal()" class="hidden sm:flex text-xs uppercase tracking-wider text-gold border border-gold/40 px-3.5 py-1.5 rounded-full hover:bg-gold/10 transition">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2 my-auto"></i> Scent Finder
+            </button>
+            <button onclick="toggleCartDrawer()" class="relative text-xl text-gray-200 hover:text-gold transition-colors p-1">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span id="cart-badge" class="absolute -top-1 -right-2 bg-gold text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+            </button>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-xl text-gray-200 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </nav>
 
+    <!-- MOBILE MENU MODAL -->
+    <div id="mobile-menu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-xl z-50 hidden flex-col justify-center items-center space-y-8 text-center p-6">
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-2xl text-gold">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#collections" onclick="toggleMobileMenu()" class="text-xl font-cinzel tracking-widest text-gray-200 hover:text-gold">Collections</a>
+        <a href="#blender" onclick="toggleMobileMenu()" class="text-xl font-cinzel tracking-widest text-gold">Custom Scent Studio</a>
+        <a href="#" onclick="toggleMobileMenu(); openQuizModal();" class="text-xl font-cinzel tracking-widest text-gray-200 hover:text-gold">Scent Finder Quiz</a>
+        <a href="#" onclick="toggleMobileMenu(); toggleAdminModal();" class="text-xl font-cinzel tracking-widest text-gold">🔑 Admin Panel</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="text-xl font-cinzel tracking-widest text-gray-200 hover:text-gold">Heritage</a>
+    </div>
+
     <!-- HERO SECTION -->
-    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-20 px-4">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-900/20 via-black to-black -z-10"></div>
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-15 mix-blend-luminosity -z-20"></div>
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[140px] pointer-events-none animate-glow"></div>
+        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-gold-rose/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div class="max-w-4xl mx-auto text-center space-y-8 z-10">
-            <span class="inline-block px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs uppercase tracking-[0.3em] font-semibold">
-                Haute Parfumerie Collection 2026
-            </span>
-            <h1 class="text-4xl md:text-7xl font-serif font-bold text-white leading-tight">
-                Crafting Memories In <br><span class="gold-gradient-text italic font-normal">Olfactory Elegance</span>
+        <div class="relative z-10 max-w-4xl text-center space-y-6">
+            <p class="text-gold tracking-[0.3em] uppercase text-xs md:text-sm font-semibold">Haute Parfumerie • Paris & Grasse</p>
+            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-gold-gradient leading-tight">
+                Crafted in Silence,<br>Spoken in Sillage.
             </h1>
-            <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
-                Discover rare oud, delicate french florals, and signature custom blends. Handcrafted in small batches with personalized bottle engraving.
+            <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto font-light leading-relaxed">
+                Discover bespoke haute fragrance compositions distilled from rare botanical extracts, precious woods, and hand-selected floral absolutes.
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <a href="#catalog" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-bold text-sm uppercase tracking-widest rounded-full transition-all transform hover:scale-105 shadow-lg shadow-amber-500/25">
-                    Explore Collection
+
+            <div class="pt-6 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#collections" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold to-gold-dark text-black font-semibold text-xs tracking-widest uppercase rounded-full hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
+                    Explore Fragrances
                 </a>
-                <a href="#studio" class="w-full sm:w-auto px-8 py-4 bg-transparent hover:bg-amber-500/10 text-amber-300 border border-amber-500/40 font-semibold text-sm uppercase tracking-widest rounded-full transition-all">
-                    Custom Bottle Studio
-                </a>
+                <button onclick="openQuizModal()" class="w-full sm:w-auto px-8 py-4 glass-panel text-gold border border-gold/40 hover:border-gold font-semibold text-xs tracking-widest uppercase rounded-full transition-all duration-300">
+                    Find Your Signature Scent
+                </button>
             </div>
+        </div>
+
+        <a href="#collections" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold/60 hover:text-gold transition text-xs tracking-widest flex flex-col items-center gap-2">
+            <span>DISCOVER</span>
+            <i class="fa-solid fa-chevron-down animate-bounce"></i>
+        </a>
+    </section>
+
+    <!-- FRAGRANCE CATALOG SECTION -->
+    <section id="collections" class="py-20 px-4 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span class="text-gold text-xs tracking-[0.25em] uppercase font-semibold">The Collection</span>
+            <h2 class="font-cinzel text-3xl md:text-4xl font-bold text-gray-100">Curated Haute Fragrances</h2>
+            <div class="w-16 h-0.5 bg-gold/50 mx-auto"></div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12" id="category-filters">
+            <button onclick="filterCatalog('all')" class="filter-btn active px-5 py-2 text-xs uppercase tracking-widest rounded-full border border-gold bg-gold text-black transition">All Scents</button>
+            <button onclick="filterCatalog('woody')" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest rounded-full border border-gold/20 text-gray-400 hover:border-gold hover:text-gold transition">Woody & Amber</button>
+            <button onclick="filterCatalog('floral')" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest rounded-full border border-gold/20 text-gray-400 hover:border-gold hover:text-gold transition">Floral & Fresh</button>
+            <button onclick="filterCatalog('oriental')" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest rounded-full border border-gold/20 text-gray-400 hover:border-gold hover:text-gold transition">Oriental & Spice</button>
+            <button onclick="filterCatalog('gourmand')" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest rounded-full border border-gold/20 text-gray-400 hover:border-gold hover:text-gold transition">Gourmand</button>
+        </div>
+
+        <!-- Catalog Grid -->
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Dynamic product cards populated via JS -->
         </div>
     </section>
 
-    <!-- SCENT FINDER QUIZ SECTION -->
-    <section id="quiz" class="py-20 px-4 bg-neutral-950 border-y border-amber-500/10">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="text-amber-500 text-xs tracking-[0.3em] uppercase font-semibold">Personalized Match</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-white mt-2">Interactive Scent Finder</h2>
-                <p class="text-gray-400 text-sm mt-2">Answer two quick questions to find your signature perfume profile.</p>
+    <!-- CUSTOM SCENT BLENDER STUDIO SECTION -->
+    <section id="blender" class="py-20 px-4 md:px-12 bg-darkCard/50 border-y border-gold/10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                <span class="text-gold text-xs tracking-[0.25em] uppercase font-semibold">Atelier Privé</span>
+                <h2 class="font-cinzel text-3xl md:text-4xl font-bold text-gray-100">Custom Perfume Studio</h2>
+                <p class="text-gray-400 text-sm font-light">Formulate your signature fragrance layer by layer and personalize the glass flacon with custom engraving.</p>
             </div>
 
-            <div class="glass-panel p-8 rounded-2xl border border-amber-500/20 relative overflow-hidden">
-                <div id="quizStep1" class="space-y-6">
-                    <h3 class="text-xl font-serif text-amber-300">Question 1: What mood do you want to evoke?</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <button onclick="selectQuizMood('mysterious')" class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/60 hover:border-amber-500 hover:bg-amber-500/10 text-left transition-all group">
-                            <i class="fa-solid fa-moon text-2xl text-amber-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                            <div class="font-bold text-white">Mysterious & Deep</div>
-                            <div class="text-xs text-gray-400 mt-1">Rich Oud, Amber, Vanilla</div>
-                        </button>
-                        <button onclick="selectQuizMood('fresh')" class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/60 hover:border-amber-500 hover:bg-amber-500/10 text-left transition-all group">
-                            <i class="fa-solid fa-sun text-2xl text-amber-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                            <div class="font-bold text-white">Fresh & Vibrant</div>
-                            <div class="text-xs text-gray-400 mt-1">Bergamot, Aquatic, Citrus</div>
-                        </button>
-                        <button onclick="selectQuizMood('romantic')" class="p-4 rounded-xl border border-neutral-800 bg-neutral-900/60 hover:border-amber-500 hover:bg-amber-500/10 text-left transition-all group">
-                            <i class="fa-solid fa-spa text-2xl text-amber-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                            <div class="font-bold text-white">Romantic & Floral</div>
-                            <div class="text-xs text-gray-400 mt-1">Damask Rose, Jasmine</div>
-                        </button>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <!-- Customizer Options -->
+                <div class="lg:col-span-7 space-y-6">
+
+                    <!-- Top Notes Selection -->
+                    <div class="glass-panel p-5 rounded-2xl">
+                        <label class="block text-xs font-semibold tracking-wider uppercase text-gold mb-3 flex items-center justify-between">
+                            <span>1. Select Top Note (Opening Sillage)</span>
+                            <span class="text-gray-400 font-normal lowercase text-[11px]" id="top-desc">Citrus Bergamot</span>
+                        </label>
+                        <div class="grid grid-cols-3 gap-3" id="top-note-options"></div>
+                    </div>
+
+                    <!-- Heart Notes Selection -->
+                    <div class="glass-panel p-5 rounded-2xl">
+                        <label class="block text-xs font-semibold tracking-wider uppercase text-gold mb-3 flex items-center justify-between">
+                            <span>2. Select Heart Note (Core Character)</span>
+                            <span class="text-gray-400 font-normal lowercase text-[11px]" id="heart-desc">Midnight Jasmine</span>
+                        </label>
+                        <div class="grid grid-cols-3 gap-3" id="heart-note-options"></div>
+                    </div>
+
+                    <!-- Base Notes Selection -->
+                    <div class="glass-panel p-5 rounded-2xl">
+                        <label class="block text-xs font-semibold tracking-wider uppercase text-gold mb-3 flex items-center justify-between">
+                            <span>3. Select Base Note (Lingering Foundation)</span>
+                            <span class="text-gray-400 font-normal lowercase text-[11px]" id="base-desc">Smoked Agarwood</span>
+                        </label>
+                        <div class="grid grid-cols-3 gap-3" id="base-note-options"></div>
+                    </div>
+
+                    <!-- Engraving Input -->
+                    <div class="glass-panel p-5 rounded-2xl">
+                        <label class="block text-xs font-semibold tracking-wider uppercase text-gold mb-2">
+                            4. Bottle Engraving Text (Max 18 Characters)
+                        </label>
+                        <input type="text" id="engraving-input" maxlength="18" placeholder="e.g. AURA • 2026" oninput="updateEngravingPreview()" class="w-full bg-black/60 border border-gold/30 rounded-lg px-4 py-2.5 text-sm text-gold focus:outline-none focus:border-gold transition">
                     </div>
                 </div>
 
-                <div id="quizResult" class="hidden text-center space-y-6 py-6">
-                    <div class="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-full flex items-center justify-center mx-auto text-2xl">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif text-white">Your Recommended Fragrance Match</h3>
-                    <div id="recommendedPerfumeCard" class="max-w-md mx-auto bg-neutral-900 p-6 rounded-xl border border-amber-500/30 text-left">
-                        <!-- Dynamic Content Inserted Here -->
-                    </div>
-                    <button onclick="resetQuiz()" class="text-xs uppercase tracking-widest text-gray-400 hover:text-amber-400 transition-colors">Retake Quiz</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCT CATALOG SECTION -->
-    <section id="catalog" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-                <span class="text-amber-500 text-xs tracking-[0.3em] uppercase font-semibold">The Collection</span>
-                <h2 class="text-3xl md:text-5xl font-serif text-white mt-2">Curated Fragrances</h2>
-            </div>
-            <!-- Category Filters -->
-            <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="categoryFilterContainer">
-                <button onclick="filterCategory('All')" class="category-btn active px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-500 text-black transition-all">All</button>
-                <button onclick="filterCategory('Oud & Oriental')" class="category-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-900 text-gray-300 border border-neutral-800 hover:border-amber-500 transition-all">Oud & Oriental</button>
-                <button onclick="filterCategory('Fresh Citrus')" class="category-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-900 text-gray-300 border border-neutral-800 hover:border-amber-500 transition-all">Fresh Citrus</button>
-                <button onclick="filterCategory('Floral')" class="category-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-900 text-gray-300 border border-neutral-800 hover:border-amber-500 transition-all">Floral</button>
-            </div>
-        </div>
-
-        <!-- Product Grid -->
-        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Products rendered dynamically via JS -->
-        </div>
-    </section>
-
-    <!-- CUSTOM SCENT & ENGRAVING STUDIO SECTION -->
-    <section id="studio" class="py-20 px-4 bg-neutral-950 border-t border-amber-500/10">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <span class="text-amber-500 text-xs tracking-[0.3em] uppercase font-semibold">Bespoke Atelier</span>
-                <h2 class="text-3xl md:text-5xl font-serif text-white mt-2">Custom Bottle Engraving Studio</h2>
-                <p class="text-gray-400 text-sm max-w-xl mx-auto mt-2">Personalize a 100ml crystal flacon with your custom text engraved in gold foil.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center glass-panel p-8 md:p-12 rounded-3xl border border-amber-500/20">
-                <!-- Bottle Live Preview Canvas -->
-                <div class="relative bg-neutral-900/80 p-8 rounded-2xl flex items-center justify-center min-h-[380px] border border-neutral-800">
-                    <div class="relative w-64 h-80 bg-gradient-to-b from-amber-900/30 via-neutral-950 to-amber-950/40 rounded-t-3xl rounded-b-xl border-2 border-amber-500/40 shadow-2xl flex flex-col items-center justify-between p-6">
-                        <!-- Bottle Cap -->
-                        <div class="absolute -top-10 w-20 h-10 bg-gradient-to-r from-amber-600 via-amber-300 to-amber-600 rounded-t-md shadow-md border border-amber-400/50"></div>
-                        <!-- Bottle Label -->
-                        <div class="w-full bg-black/80 border border-amber-500/40 p-4 rounded text-center space-y-2 mt-8 shadow-inner">
-                            <span class="text-[9px] tracking-[0.3em] text-amber-400 uppercase block">AURA PARFUMS</span>
-                            <span id="previewScentName" class="text-sm font-serif font-bold text-white block">ROYAL OUD</span>
-                            <div class="w-8 h-[1px] bg-amber-500/50 mx-auto my-1"></div>
-                            <!-- Engraved Text Output -->
-                            <p id="previewEngravedText" class="text-xs font-serif italic text-amber-300 font-semibold tracking-wider break-words px-1">"Your Name Here"</p>
+                <!-- Live Glass Bottle Preview -->
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <div class="glass-panel-gold p-8 rounded-3xl w-full text-center relative border border-gold/30 flex flex-col items-center">
+                        <div class="absolute top-4 right-4 bg-gold/20 text-gold text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full border border-gold/40">
+                            Custom Blend
                         </div>
-                        <span class="text-[10px] text-gray-500 tracking-widest uppercase">EAU DE PARFUM • 100ML</span>
-                    </div>
-                </div>
 
-                <!-- Customizer Form Controls -->
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-amber-400 font-semibold mb-2">1. Select Fragrance Base</label>
-                        <select id="studioBaseSelect" onchange="updateStudioPreview()" class="w-full bg-neutral-900 border border-neutral-700 text-white p-3 rounded-lg focus:border-amber-500 focus:outline-none text-sm">
-                            <option value="Royal Oud & Amber">Royal Oud & Amber (PKR 18,500)</option>
-                            <option value="Velvet Rose французский">Velvet Rose французский (PKR 15,200)</option>
-                            <option value="Celestial Bergamot">Celestial Bergamot (PKR 13,800)</option>
-                        </select>
-                    </div>
+                        <!-- Perfume Bottle Graphic Mockup -->
+                        <div class="relative my-8 w-48 h-64 flex flex-col items-center justify-center">
+                            <!-- Bottle Cap -->
+                            <div class="w-16 h-10 bg-gradient-to-b from-gold-light via-gold to-gold-dark rounded-t-md shadow-lg border-b border-black"></div>
+                            <!-- Bottle Neck -->
+                            <div class="w-10 h-4 bg-gold/80 border-x border-gold"></div>
+                            <!-- Glass Bottle Body -->
+                            <div class="w-44 h-48 bg-gradient-to-b from-white/10 via-white/5 to-black/80 rounded-2xl border-2 border-gold/50 backdrop-blur-md relative overflow-hidden shadow-[0_10px_30px_rgba(212,175,55,0.15)] flex flex-col justify-between p-4">
+                                <div id="bottle-liquid" class="absolute bottom-0 left-0 w-full h-3/4 bg-gold/20 transition-all duration-500 rounded-b-xl"></div>
+                                
+                                <div class="relative z-10 text-center pt-2">
+                                    <div class="text-[10px] tracking-[0.3em] font-cinzel text-gold">AURA</div>
+                                    <div class="text-[8px] tracking-[0.2em] uppercase text-gray-400">Custom Blend</div>
+                                </div>
 
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-amber-400 font-semibold mb-2">2. Bottle Engraving (Max 22 Chars)</label>
-                        <input type="text" id="studioEngraveInput" max="22" oninput="updateStudioPreview()" placeholder="e.g. A. R. Ansari" class="w-full bg-neutral-900 border border-neutral-700 text-white p-3 rounded-lg focus:border-amber-500 focus:outline-none text-sm font-serif">
-                    </div>
+                                <!-- Live Engraved Text Preview -->
+                                <div class="relative z-10 text-center py-2 px-1 border-y border-gold/30 bg-black/40">
+                                    <span id="engraving-preview-text" class="engraving-font text-xs text-gold font-bold tracking-widest block truncate">MY SIGNATURE</span>
+                                </div>
 
-                    <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Total Price</span>
-                            <span id="studioTotalPrice" class="text-2xl font-serif font-bold text-amber-400">PKR 18,500</span>
+                                <div class="relative z-10 text-center pb-1">
+                                    <span class="text-[9px] text-gray-400 uppercase tracking-widest">100 ML EAU DE PARFUM</span>
+                                </div>
+                            </div>
                         </div>
-                        <button onclick="addCustomStudioToCart()" class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs uppercase tracking-widest rounded-full transition-all shadow-lg shadow-amber-500/20">
-                            Add Bespoke Bottle To Cart
-                        </button>
+
+                        <!-- Summary & Cart Button -->
+                        <div class="w-full space-y-3 pt-2 border-t border-gold/20">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-gray-400">Selected Blend:</span>
+                                <span id="blend-summary-text" class="text-gold font-medium truncate max-w-[180px]">Bergamot + Jasmine + Agarwood</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-cinzel text-gray-200">Custom Creation Price:</span>
+                                <span id="custom-price" class="text-2xl font-cinzel text-gold font-bold">$140</span>
+                            </div>
+                            <button onclick="addCustomBlendToCart()" class="w-full py-3.5 bg-gradient-to-r from-gold to-gold-dark text-black font-bold text-xs uppercase tracking-widest rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition">
+                                <i class="fa-solid fa-plus mr-2"></i> Add Custom Blend to Cart ($140)
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ADMIN MODAL PORTAL -->
-    <div id="adminModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="bg-neutral-900 border border-amber-500/30 rounded-2xl w-full max-w-5xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
-            <!-- Modal Header -->
-            <div class="p-6 bg-neutral-950 border-b border-neutral-800 flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="w-3 h-3 rounded-full bg-amber-500 animate-pulse"></div>
-                    <h3 class="text-xl font-serif text-white font-bold">AURA Business Management Portal</h3>
-                </div>
-                <button onclick="toggleAdminModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
-            </div>
+    <!-- ADMIN MANAGEMENT PORTAL MODAL -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel border-gold/40 rounded-3xl max-w-4xl w-full p-6 md:p-8 relative shadow-2xl max-h-[90vh] flex flex-col">
+            <button onclick="toggleAdminModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gold text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
-            <!-- PIN Login Form Screen -->
-            <div id="adminAuthScreen" class="p-8 text-center space-y-6 max-w-md mx-auto my-auto">
-                <div class="w-16 h-16 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center mx-auto text-2xl border border-amber-500/30">
+            <!-- Admin Login Screen -->
+            <div id="admin-auth-screen" class="my-auto py-8 text-center space-y-6 max-w-md mx-auto">
+                <div class="w-16 h-16 rounded-full bg-gold/10 text-gold flex items-center justify-center mx-auto text-2xl border border-gold/30">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <h4 class="text-xl font-serif text-white">Owner Portal Authentication</h4>
-                <p class="text-xs text-gray-400">Enter your secure 4-digit manager PIN to edit catalog, prices, stocks, and media.</p>
-                <input type="password" id="adminPinInput" maxlength="4" placeholder="••••" class="w-full text-center text-2xl tracking-[0.5em] bg-neutral-950 border border-neutral-700 rounded-xl p-3 text-amber-400 focus:border-amber-500 focus:outline-none">
-                <button onclick="verifyAdminPin()" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs uppercase tracking-widest rounded-xl transition-all">
+                <h3 class="font-cinzel text-2xl text-gold-gradient font-bold">Admin Inventory Access</h3>
+                <p class="text-xs text-gray-400">Enter your 4-digit PIN to edit prices, stock, images, and items.</p>
+                <input type="password" id="admin-pin-input" maxlength="4" placeholder="••••" class="w-full text-center text-2xl tracking-[0.5em] bg-black/60 border border-gold/30 rounded-xl p-3 text-gold focus:border-gold focus:outline-none">
+                <button onclick="verifyAdminPin()" class="w-full py-3 bg-gradient-to-r from-gold to-gold-dark text-black font-bold text-xs uppercase tracking-widest rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition">
                     Login To Portal
                 </button>
-                <p class="text-[10px] text-gray-500">Default Security PIN: <code class="text-amber-400">1234</code></p>
+                <p class="text-[10px] text-gray-500">Default Manager PIN: <code class="text-gold">1234</code></p>
             </div>
 
-            <!-- Admin Portal Main Management Dashboard -->
-            <div id="adminDashboard" class="hidden flex-1 flex flex-col overflow-hidden">
-                <!-- Dashboard Toolbar -->
-                <div class="p-4 bg-neutral-950/80 border-b border-neutral-800 flex flex-wrap items-center justify-between gap-4">
-                    <div class="flex items-center space-x-3">
-                        <button onclick="openProductFormModal()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs uppercase tracking-wider rounded-lg transition-all flex items-center">
-                            <i class="fa-solid fa-plus mr-2"></i> Add New Perfume
-                        </button>
-                        <button onclick="exportDataJSON()" class="px-3 py-2 bg-neutral-800 hover:bg-neutral-700 text-gray-300 text-xs rounded-lg border border-neutral-700">
-                            <i class="fa-solid fa-download mr-1"></i> Export Backup
-                        </button>
-                    </div>
-                    <div class="text-xs text-gray-400">
-                        Total Items: <span id="adminTotalItemsCount" class="text-amber-400 font-bold">0</span>
-                    </div>
+            <!-- Admin Main Management Dashboard -->
+            <div id="admin-dashboard-screen" class="hidden flex-1 flex flex-col overflow-hidden space-y-4">
+                <div class="flex items-center justify-between border-b border-gold/20 pb-4">
+                    <h3 class="font-cinzel text-xl text-gold font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-boxes-stacked text-sm"></i> Inventory Manager
+                    </h3>
+                    <button onclick="openProductFormModal()" class="px-4 py-2 bg-gold text-black font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-gold-light transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-plus"></i> Add New Perfume
+                    </button>
                 </div>
 
-                <!-- Product Inventory Table -->
-                <div class="flex-1 overflow-y-auto p-6 custom-scrollbar">
+                <!-- Products Table -->
+                <div class="flex-1 overflow-y-auto custom-scrollbar">
                     <table class="w-full text-left text-xs text-gray-300">
-                        <thead class="bg-neutral-950 text-amber-400 uppercase tracking-wider border-b border-neutral-800">
+                        <thead class="bg-black/60 text-gold font-cinzel uppercase tracking-wider border-b border-gold/20">
                             <tr>
-                                <th class="p-3">Item</th>
+                                <th class="p-3">Perfume</th>
                                 <th class="p-3">Category</th>
-                                <th class="p-3">Price (PKR)</th>
+                                <th class="p-3">Price (50ml / 100ml)</th>
                                 <th class="p-3">Stock Units</th>
-                                <th class="p-3">Status</th>
                                 <th class="p-3 text-right">Actions</th>
                             </tr>
                         </thead>
-                        <tbody id="adminProductTableBody" class="divide-y divide-neutral-800">
-                            <!-- Rendered dynamically -->
+                        <tbody id="admin-table-body" class="divide-y divide-white/5">
+                            <!-- Populated dynamically via JS -->
                         </tbody>
                     </table>
                 </div>
@@ -335,186 +360,353 @@
     </div>
 
     <!-- PRODUCT EDIT / ADD FORM MODAL -->
-    <div id="productFormModal" class="fixed inset-0 z-[60] bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="bg-neutral-900 border border-amber-500/30 rounded-2xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
-            <div class="p-6 bg-neutral-950 border-b border-neutral-800 flex items-center justify-between">
-                <h3 id="formModalTitle" class="text-lg font-serif text-white font-bold">Add New Fragrance</h3>
-                <button onclick="closeProductFormModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-            </div>
+    <div id="product-form-modal" class="fixed inset-0 z-[60] bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel border-gold/40 rounded-3xl max-w-xl w-full p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProductFormModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gold text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="form-modal-title" class="font-cinzel text-xl text-gold font-bold mb-4">Add Perfume</h3>
             
-            <form id="productForm" onsubmit="saveProductForm(event)" class="p-6 space-y-4 overflow-y-auto flex-1 custom-scrollbar text-xs">
-                <input type="hidden" id="formProductId">
+            <form onsubmit="saveProductForm(event)" class="space-y-4 text-xs">
+                <input type="hidden" id="form-product-id">
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-gray-400 uppercase mb-1">Perfume Name</label>
-                        <input type="text" id="formName" required class="w-full bg-neutral-950 border border-neutral-800 p-2.5 rounded text-white focus:border-amber-500 outline-none">
+                        <label class="block text-gold uppercase text-[10px] tracking-widest mb-1">Perfume Name</label>
+                        <input type="text" id="form-name" required class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 focus:border-gold outline-none">
                     </div>
                     <div>
-                        <label class="block text-gray-400 uppercase mb-1">Category</label>
-                        <select id="formCategory" class="w-full bg-neutral-950 border border-neutral-800 p-2.5 rounded text-white focus:border-amber-500 outline-none">
-                            <option value="Oud & Oriental">Oud & Oriental</option>
-                            <option value="Fresh Citrus">Fresh Citrus</option>
-                            <option value="Floral">Floral</option>
+                        <label class="block text-gold uppercase text-[10px] tracking-widest mb-1">Category</label>
+                        <select id="form-category" class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 focus:border-gold outline-none">
+                            <option value="woody">Woody & Amber</option>
+                            <option value="floral">Floral & Fresh</option>
+                            <option value="oriental">Oriental & Spice</option>
+                            <option value="gourmand">Gourmand</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-3 gap-3">
                     <div>
-                        <label class="block text-gray-400 uppercase mb-1">Price (PKR)</label>
-                        <input type="number" id="formPrice" required min="0" class="w-full bg-neutral-950 border border-neutral-800 p-2.5 rounded text-white focus:border-amber-500 outline-none">
+                        <label class="block text-gold uppercase text-[10px] tracking-widest mb-1">50ml Price ($)</label>
+                        <input type="number" id="form-price50" required min="0" class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 focus:border-gold outline-none">
                     </div>
                     <div>
-                        <label class="block text-gray-400 uppercase mb-1">Stock Quantity</label>
-                        <input type="number" id="formStock" required min="0" class="w-full bg-neutral-950 border border-neutral-800 p-2.5 rounded text-white focus:border-amber-500 outline-none">
+                        <label class="block text-gold uppercase text-[10px] tracking-widest mb-1">100ml Price ($)</label>
+                        <input type="number" id="form-price100" required min="0" class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 focus:border-gold outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gold uppercase text-[10px] tracking-widest mb-1">Stock Units</label>
+                        <input type="number" id="form-stock" required min="0" class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 focus:border-gold outline-none">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-gray-400 uppercase mb-1">Main Image URL</label>
-                    <input type="url" id="formImage" required placeholder="https://images.unsplash.com/..." class="w-full bg-neutral-950 border border-neutral-800 p-2.5 rounded text-white focus:border-amber-500 outline-none">
+                    <label class="block text-gold uppercase text-[10px] tracking-widest mb-1">Tagline</label>
+                    <input type="text" id="form-tagline" required class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 focus:border-gold outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-gray-400 uppercase mb-1">Fragrance Notes Breakdown</label>
-                    <div class="grid grid-cols-3 gap-2">
-                        <input type="text" id="formTopNotes" placeholder="Top (e.g. Bergamot)" class="bg-neutral-950 border border-neutral-800 p-2 rounded text-white">
-                        <input type="text" id="formHeartNotes" placeholder="Heart (e.g. Rose)" class="bg-neutral-950 border border-neutral-800 p-2 rounded text-white">
-                        <input type="text" id="formBaseNotes" placeholder="Base (e.g. Oud)" class="bg-neutral-950 border border-neutral-800 p-2 rounded text-white">
+                    <label class="block text-gold uppercase text-[10px] tracking-widest mb-1">Description</label>
+                    <textarea id="form-description" rows="2" class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 focus:border-gold outline-none"></textarea>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                    <div>
+                        <label class="block text-gold uppercase text-[9px] tracking-widest mb-1">Top Notes</label>
+                        <input type="text" id="form-top-notes" placeholder="e.g. Bergamot" class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gold uppercase text-[9px] tracking-widest mb-1">Heart Notes</label>
+                        <input type="text" id="form-heart-notes" placeholder="e.g. Rose" class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-gold uppercase text-[9px] tracking-widest mb-1">Base Notes</label>
+                        <input type="text" id="form-base-notes" placeholder="e.g. Oud" class="w-full bg-black/60 border border-gold/30 rounded p-2 text-gray-200 outline-none">
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-gray-400 uppercase mb-1">Description</label>
-                    <textarea id="formDescription" rows="3" class="w-full bg-neutral-950 border border-neutral-800 p-2.5 rounded text-white focus:border-amber-500 outline-none"></textarea>
-                </div>
-
-                <div class="pt-4 flex justify-end space-x-3 border-t border-neutral-800">
-                    <button type="button" onclick="closeProductFormModal()" class="px-4 py-2 bg-neutral-800 text-gray-300 rounded font-semibold">Cancel</button>
-                    <button type="submit" class="px-6 py-2 bg-amber-500 text-black rounded font-bold uppercase tracking-wider">Save Perfume</button>
+                <div class="pt-4 flex justify-end gap-3 border-t border-gold/20">
+                    <button type="button" onclick="closeProductFormModal()" class="px-4 py-2 bg-gray-800 text-gray-300 rounded font-semibold">Cancel</button>
+                    <button type="submit" class="px-6 py-2 bg-gold text-black rounded font-bold uppercase tracking-wider">Save Changes</button>
                 </div>
             </form>
         </div>
     </div>
 
+    <!-- FOOTER -->
+    <footer id="about" class="bg-black border-t border-gold/20 pt-16 pb-12 px-4 md:px-12 text-gray-400">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div class="space-y-4">
+                <a href="#" class="text-2xl font-cinzel font-bold text-gold-gradient block">AURA PARFUMS</a>
+                <p class="text-xs leading-relaxed font-light">
+                    An independent maison de haute parfumerie creating artisanal fragrances formulated with rare botanicals and ethical luxury principles.
+                </p>
+            </div>
+            <div>
+                <h5 class="text-xs font-semibold uppercase tracking-widest text-gold mb-4 font-cinzel">Boutiques</h5>
+                <ul class="space-y-2 text-xs font-light">
+                    <li>Place Vendôme, Paris</li>
+                    <li>Mayfair, London</li>
+                    <li>Madison Avenue, New York</li>
+                    <li>Ginza, Tokyo</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-xs font-semibold uppercase tracking-widest text-gold mb-4 font-cinzel">Client Care</h5>
+                <ul class="space-y-2 text-xs font-light">
+                    <li><a href="#" class="hover:text-gold transition">Private Consultations</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Shipping & Customs</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Bespoke Gifting</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Complimentary Samples</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-xs font-semibold uppercase tracking-widest text-gold mb-4 font-cinzel">Newsletter</h5>
+                <p class="text-xs text-gray-400 mb-3 font-light">Receive private invitations to limited batch releases.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email address" class="bg-darkCard text-xs text-gold px-3 py-2 border border-gold/30 rounded-l-md focus:outline-none w-full">
+                    <button class="bg-gold text-black px-4 text-xs font-bold rounded-r-md hover:bg-gold-light transition uppercase">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-[11px] font-light text-gray-500 gap-4">
+            <p>© 2026 AURA PARFUMS Maison. All Rights Reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-gold">Privacy Policy</a>
+                <a href="#" class="hover:text-gold">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE FRAGRANCE QUIZ MODAL -->
+    <div id="quiz-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel border-gold/40 rounded-3xl max-w-xl w-full p-6 md:p-8 relative shadow-2xl">
+            <button onclick="closeQuizModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gold text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="quiz-step-container"></div>
+        </div>
+    </div>
+
+    <!-- QUICK VIEW / PRODUCT DETAIL MODAL -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel border-gold/40 rounded-3xl max-w-2xl w-full p-6 md:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]" id="product-modal-content"></div>
+    </div>
+
     <!-- SHOPPING CART SLIDE-OVER DRAWER -->
-    <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden transition-opacity">
-        <div class="absolute inset-y-0 right-0 w-full max-w-md bg-neutral-900 border-l border-amber-500/20 shadow-2xl flex flex-col">
-            <!-- Cart Header -->
-            <div class="p-6 bg-neutral-950 border-b border-neutral-800 flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-bag-shopping text-amber-500"></i>
-                    <h3 class="text-lg font-serif text-white font-bold">Your Luxury Order</h3>
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-96 bg-darkElevated border-l border-gold/30 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-6 border-b border-gold/20 flex justify-between items-center">
+            <h3 class="font-cinzel text-lg text-gold font-bold tracking-widest flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-sm"></i> YOUR SELECTIONS
+            </h3>
+            <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-gold text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+
+        <div class="p-6 border-t border-gold/20 bg-black/40 space-y-4">
+            <div class="space-y-2">
+                <div class="flex justify-between text-xs text-gray-400">
+                    <span>Complimentary Shipping</span>
+                    <span class="text-gold font-medium">Included</span>
                 </div>
-                <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+                <div class="flex justify-between text-base font-cinzel text-gray-100 font-bold pt-2 border-t border-white/10">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal" class="text-gold">$0</span>
+                </div>
             </div>
 
-            <!-- Cart Items List -->
-            <div id="cartItemsContainer" class="flex-1 p-6 overflow-y-auto space-y-4 custom-scrollbar">
-                <!-- Cart items rendered dynamically -->
-            </div>
+            <button onclick="openCheckoutModal()" class="w-full py-3.5 bg-gradient-to-r from-gold to-gold-dark text-black font-bold text-xs uppercase tracking-widest rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
 
-            <!-- Cart Footer / Checkout -->
-            <div class="p-6 bg-neutral-950 border-t border-neutral-800 space-y-4">
-                <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-400 uppercase tracking-wider">Subtotal</span>
-                    <span id="cartSubtotal" class="text-xl font-serif font-bold text-amber-400">PKR 0</span>
+    <!-- CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel border-gold/40 rounded-3xl max-w-lg w-full p-6 md:p-8 relative shadow-2xl">
+            <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gold text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="checkout-content">
+                <div class="text-center mb-6">
+                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Haute Express Checkout</span>
+                    <h3 class="font-cinzel text-2xl text-gray-100 font-bold mt-1">Order Confirmation</h3>
                 </div>
-                <button onclick="triggerWhatsAppCheckout()" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-bold text-xs uppercase tracking-widest rounded-full shadow-lg shadow-amber-500/20 flex items-center justify-center space-x-2">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Checkout Via WhatsApp</span>
-                </button>
+
+                <form onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gold mb-1">Full Name</label>
+                        <input type="text" required placeholder="e.g. Jean-Luc Picard" class="w-full bg-black/60 border border-gold/30 rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gold mb-1">Delivery Address</label>
+                        <input type="text" required placeholder="Avenue des Champs-Élysées, Paris" class="w-full bg-black/60 border border-gold/30 rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-gold">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gold mb-1">Payment Card</label>
+                            <input type="text" required placeholder="•••• •••• •••• 4242" class="w-full bg-black/60 border border-gold/30 rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gold mb-1">Exp / CVC</label>
+                            <input type="text" required placeholder="12/28 • 888" class="w-full bg-black/60 border border-gold/30 rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-gold">
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-gold/20 flex justify-between items-center">
+                        <span class="text-xs uppercase text-gray-400">Total Amount</span>
+                        <span id="checkout-total-price" class="text-xl font-cinzel font-bold text-gold">$0</span>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 mt-2 bg-gradient-to-r from-gold to-gold-dark text-black font-bold text-xs uppercase tracking-widest rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition">
+                        Complete Order
+                    </button>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer id="about" class="bg-neutral-950 border-t border-amber-500/10 py-12 px-6 mt-20 text-xs text-gray-500">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="space-y-3">
-                <div class="text-lg font-serif font-bold text-white tracking-wider">AURA PARFUMS</div>
-                <p class="leading-relaxed">Handcrafted haute parfumerie. Sourced with rare ingredients across Grasse, Dubai, and Lahore.</p>
-            </div>
-            <div class="space-y-2">
-                <div class="text-white font-bold uppercase tracking-wider mb-2">Boutique Store</div>
-                <p>Gawalmandi / Main Boulevard, Lahore, Pakistan</p>
-                <p>Mon - Sat: 11:00 AM - 10:00 PM</p>
-            </div>
-            <div class="space-y-2">
-                <div class="text-white font-bold uppercase tracking-wider mb-2">Client Services</div>
-                <p><i class="fa-solid fa-envelope mr-2 text-amber-500"></i> support@auraparfums.com</p>
-                <p><i class="fa-solid fa-phone mr-2 text-amber-500"></i> +92 300 1234567</p>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto border-t border-neutral-900 mt-8 pt-6 text-center text-[10px] text-gray-600">
-            © 2026 AURA PARFUMS. All Rights Reserved. Designed for Luxury Retail.
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT APPLICATION ENGINE -->
+    <!-- JAVASCRIPT APP LOGIC -->
     <script>
-        // INITIAL DEFAULT INVENTORY DATA
         const DEFAULT_PRODUCTS = [
             {
-                id: "p1",
-                name: "Royal Oud & Amber",
-                category: "Oud & Oriental",
-                price: 18500,
-                stock: 12,
-                image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80",
-                topNotes: "Bergamot, Saffron",
-                heartNotes: "Damask Rose, Cedarwood",
-                baseNotes: "Cambodian Oud, Amber Resin",
-                description: "An opulent fragrance imbued with rare Cambodian oud and warm golden amber."
+                id: 'prod-1',
+                name: 'Oud Impérial Absolu',
+                category: 'woody',
+                categoryLabel: 'Woody & Amber',
+                rating: 4.9,
+                price50: 240,
+                price100: 340,
+                stock: 15,
+                tagline: 'Deep, mysterious aged Cambodian oud wrapped in dark amber.',
+                description: 'An commanding nocturnal masterpiece. Distilled from resinous heartwood aged for 30 years, accented with spicy saffron and royal leather notes.',
+                color: 'from-amber-900/40 to-black',
+                badge: 'Best Seller',
+                notes: { top: 'Cardamom, Saffron', heart: 'Aged Cambodian Oud', base: 'Amber, Leather, Vanilla' }
             },
             {
-                id: "p2",
-                name: "Velvet Rose French",
-                category: "Floral",
-                price: 15200,
+                id: 'prod-2',
+                name: 'Soleil de Grasse',
+                category: 'floral',
+                categoryLabel: 'Floral & Fresh',
+                rating: 4.8,
+                price50: 195,
+                price100: 275,
                 stock: 8,
-                image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&q=80",
-                topNotes: "Pink Pepper, Lemon",
-                heartNotes: "Grasse Rose, Violet",
-                baseNotes: "White Musk, Vanilla",
-                description: "Seductive bouquet of hand-picked French roses softened by creamy vanilla."
+                tagline: 'Radiant Riviera citrus soaked in Mediterranean sunlight.',
+                description: 'Captures the sparkling morning radiance over Southern French citrus orchards. Bergamot and petitgrain infused with crisp neroli blossoms.',
+                color: 'from-yellow-600/30 to-black',
+                badge: 'New Vintage',
+                notes: { top: 'Calabrian Bergamot', heart: 'Grasse Orange Blossom', base: 'White Musk, Driftwood' }
             },
             {
-                id: "p3",
-                name: "Celestial Bergamot",
-                category: "Fresh Citrus",
-                price: 13800,
-                stock: 25,
-                image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&q=80",
-                topNotes: "Calabrian Bergamot, Lime",
-                heartNotes: "Neroli, Aquatic Accord",
-                baseNotes: "Vetiver, Cedar",
-                description: "Crisp, sparkling citrus notes balanced with aquatic freshness."
+                id: 'prod-3',
+                name: 'Rose Nocturne',
+                category: 'oriental',
+                categoryLabel: 'Oriental & Spice',
+                rating: 5.0,
+                price50: 210,
+                price100: 295,
+                stock: 22,
+                tagline: 'Velvety midnight Bulgarian rose laced with black pepper.',
+                description: 'A sensual floral study of roses harvested under moonlight. Romantic, rich, and lingering with velvety black tea notes.',
+                color: 'from-rose-900/40 to-black',
+                badge: 'Award Winner',
+                notes: { top: 'Black Pepper, Lychee', heart: 'Midnight Bulgarian Rose', base: 'Patchouli, Smoked Amber' }
+            },
+            {
+                id: 'prod-4',
+                name: 'Vanilla Céleste',
+                category: 'gourmand',
+                categoryLabel: 'Gourmand',
+                rating: 4.7,
+                price50: 205,
+                price100: 290,
+                stock: 5,
+                tagline: 'Intoxicating smoky Bourbon vanilla and toasted tonka bean.',
+                description: 'An indulgent warm amber fragrance featuring rare Bourbon vanilla pod infusions, charred cedar, and smooth salted praline.',
+                color: 'from-amber-700/40 to-black',
+                badge: 'Limited Edition',
+                notes: { top: 'Toasted Almond', heart: 'Bourbon Vanilla Bean', base: 'Tonka Bean, Sandalwood' }
             }
         ];
 
-        // STATE MANAGEMENT
+        const BLENDER_OPTIONS = {
+            top: [
+                { id: 'top-1', name: 'Citrus Bergamot', desc: 'Sparkling & Bright' },
+                { id: 'top-2', name: 'Pink Pepper', desc: 'Vibrant & Spicy' },
+                { id: 'top-3', name: 'Wild Green Fig', desc: 'Fresh & Earthy' }
+            ],
+            heart: [
+                { id: 'heart-1', name: 'Midnight Jasmine', desc: 'Seductive Floral' },
+                { id: 'heart-2', name: 'Royal Damask Rose', desc: 'Classic Romance' },
+                { id: 'heart-3', name: 'Orris Butter', desc: 'Powdery Velvet' }
+            ],
+            base: [
+                { id: 'base-1', name: 'Smoked Agarwood', desc: 'Deep Oud Resin' },
+                { id: 'base-2', name: 'Bourbon Vanilla', desc: 'Warm & Creamy' },
+                { id: 'base-3', name: 'Mysore Sandalwood', desc: 'Smooth Silky Wood' }
+            ]
+        };
+
+        const QUIZ_STEPS = [
+            {
+                question: "Which Fragrance Family suits your spirit?",
+                subtitle: "Select the note character that appeals to you most.",
+                options: [
+                    { label: "Woody & Amber (Rich Oud, Cedar & Leather)", tag: "woody", icon: "fa-tree" },
+                    { label: "Floral & Fresh (Bergamot, Jasmine & Neroli)", tag: "floral", icon: "fa-leaf" },
+                    { label: "Oriental & Spice (Saffron, Pepper & Rose)", tag: "oriental", icon: "fa-fire" },
+                    { label: "Gourmand (Bourbon Vanilla & Tonka Bean)", tag: "gourmand", icon: "fa-cookie-bite" }
+                ]
+            },
+            {
+                question: "What is your main wearing occasion?",
+                subtitle: "Where will this fragrance make its impression?",
+                options: [
+                    { label: "Intimate Evenings & Black-Tie Galas", tag: "woody", icon: "fa-champagne-glasses" },
+                    { label: "Daily Elegance & Professional Settings", tag: "floral", icon: "fa-sun" },
+                    { label: "Night Out Rendezvous & Parties", tag: "oriental", icon: "fa-moon" },
+                    { label: "Cozy Weekends & Leisure Escapes", tag: "gourmand", icon: "fa-mug-hot" }
+                ]
+            },
+            {
+                question: "Preferred Scent Intensity & Sillage?",
+                subtitle: "How strongly should your scent radiate around you?",
+                options: [
+                    { label: "Intense & Long-Lasting Sillage", tag: "woody", icon: "fa-gem" },
+                    { label: "Elegantly Subtle & Close to Skin", tag: "floral", icon: "fa-wind" }
+                ]
+            }
+        ];
+
         let products = [];
         let cart = [];
-        let activeCategory = "All";
+        let selectedBlender = {
+            top: BLENDER_OPTIONS.top[0],
+            heart: BLENDER_OPTIONS.heart[0],
+            base: BLENDER_OPTIONS.base[0],
+            engraving: 'MY SIGNATURE'
+        };
+        let quizAnswers = [];
+        let currentQuizStep = 0;
 
-        // APP INIT
-        document.addEventListener("DOMContentLoaded", () => {
+        window.addEventListener('DOMContentLoaded', () => {
             loadProductsFromStorage();
-            renderCatalog();
-            updateStudioPreview();
+            renderCatalog(products);
+            initBlenderUI();
+            updateCartBadge();
         });
 
-        // LOCAL STORAGE HELPERS
         function loadProductsFromStorage() {
-            const stored = localStorage.getItem("aura_parfums_products");
-            if (stored) {
-                try {
-                    products = JSON.parse(stored);
-                } catch(e) {
-                    products = [...DEFAULT_PRODUCTS];
-                }
+            const saved = localStorage.getItem('aura_products_v2');
+            if (saved) {
+                try { products = JSON.parse(saved); } catch(e) { products = [...DEFAULT_PRODUCTS]; }
             } else {
                 products = [...DEFAULT_PRODUCTS];
                 saveProductsToStorage();
@@ -522,225 +714,123 @@
         }
 
         function saveProductsToStorage() {
-            localStorage.setItem("aura_parfums_products", JSON.stringify(products));
+            localStorage.setItem('aura_products_v2', JSON.stringify(products));
         }
 
-        // RENDER CATALOG
-        function renderCatalog() {
-            const grid = document.getElementById("productGrid");
-            grid.innerHTML = "";
+        function renderCatalog(items) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
 
-            const filtered = activeCategory === "All" 
-                ? products 
-                : products.filter(p => p.category === activeCategory);
-
-            filtered.forEach(product => {
+            items.forEach(product => {
                 const isOutOfStock = product.stock <= 0;
-                const card = document.createElement("div");
-                card.className = "glass-panel rounded-2xl overflow-hidden border border-neutral-800 hover:border-amber-500/40 transition-all group flex flex-col justify-between";
+                const card = document.createElement('div');
+                card.className = 'glass-panel rounded-3xl overflow-hidden hover:border-gold/60 transition-all duration-300 group flex flex-col justify-between';
+                
                 card.innerHTML = `
-                    <div>
-                        <div class="relative h-64 overflow-hidden bg-neutral-900">
-                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            ${isOutOfStock ? `
-                                <div class="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center">
-                                    <span class="px-3 py-1 bg-red-600 text-white font-bold text-[10px] tracking-widest uppercase rounded">Out of Stock</span>
-                                </div>
-                            ` : ''}
-                            <span class="absolute top-3 left-3 px-3 py-1 bg-black/70 backdrop-blur-md text-amber-400 font-semibold text-[10px] uppercase tracking-widest rounded-full border border-amber-500/30">
-                                ${product.category}
+                    <div class="relative p-6 bg-gradient-to-b ${product.color || 'from-amber-900/40 to-black'} text-center flex flex-col items-center justify-center min-h-[220px]">
+                        <span class="absolute top-4 left-4 bg-gold/20 text-gold text-[9px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full border border-gold/30">
+                            ${product.badge || 'Haute Edition'}
+                        </span>
+                        ${isOutOfStock ? `
+                            <span class="absolute top-4 right-4 bg-rose-900/80 text-rose-200 text-[9px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-full border border-rose-500/30">
+                                Out of Stock
                             </span>
-                        </div>
-                        <div class="p-6 space-y-3">
-                            <h3 class="text-xl font-serif text-white font-bold">${product.name}</h3>
-                            <p class="text-xs text-gray-400 line-clamp-2">${product.description}</p>
-                            <div class="text-[11px] text-amber-300/80 space-y-1 bg-neutral-950 p-2.5 rounded border border-neutral-800">
-                                <div><strong class="text-amber-500">Top:</strong> ${product.topNotes}</div>
-                                <div><strong class="text-amber-500">Heart:</strong> ${product.heartNotes}</div>
-                                <div><strong class="text-amber-500">Base:</strong> ${product.baseNotes}</div>
+                        ` : ''}
+                        <div class="w-20 h-32 relative flex flex-col items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                            <div class="w-8 h-6 bg-gradient-to-b from-gold-light to-gold rounded-t-sm shadow"></div>
+                            <div class="w-5 h-2 bg-gold/80"></div>
+                            <div class="w-[70px] h-24 bg-gradient-to-b from-white/20 via-white/5 to-black/80 rounded-xl border border-gold/40 backdrop-blur-sm flex items-center justify-center relative p-2 shadow-xl">
+                                <div class="border border-gold/30 w-full h-full rounded flex items-center justify-center">
+                                    <span class="text-[7px] font-cinzel text-gold text-center tracking-widest leading-tight font-bold">${product.name.toUpperCase()}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-6 pt-0 flex items-center justify-between border-t border-neutral-800/60 mt-4">
+
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
                         <div>
-                            <span class="text-[10px] text-gray-500 block uppercase">Price</span>
-                            <span class="text-lg font-serif font-bold text-amber-400">PKR ${product.price.toLocaleString()}</span>
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-[10px] uppercase font-semibold text-gold tracking-widest">${product.categoryLabel || product.category}</span>
+                                <span class="text-xs text-gold"><i class="fa-solid fa-star text-[10px]"></i> ${product.rating || '5.0'}</span>
+                            </div>
+                            <h3 class="font-cinzel text-lg font-bold text-gray-100 group-hover:text-gold transition-colors">${product.name}</h3>
+                            <p class="text-gray-400 text-xs font-light mt-1 line-clamp-2">${product.tagline}</p>
                         </div>
-                        <button onclick="addToCart('${product.id}')" ${isOutOfStock ? 'disabled' : ''} class="px-4 py-2 ${isOutOfStock ? 'bg-neutral-800 text-gray-600 cursor-not-allowed' : 'bg-amber-500 hover:bg-amber-600 text-black'} font-bold text-xs uppercase tracking-wider rounded-full transition-all">
-                            ${isOutOfStock ? 'Unavailable' : 'Add To Cart'}
-                        </button>
+
+                        <div class="border-t border-white/5 pt-3 space-y-1 text-[11px]">
+                            <div class="text-gray-400 flex justify-between"><span class="text-gold/80 uppercase font-medium text-[9px]">Top:</span><span class="truncate ml-2 text-gray-300">${product.notes?.top || 'Citrus'}</span></div>
+                            <div class="text-gray-400 flex justify-between"><span class="text-gold/80 uppercase font-medium text-[9px]">Heart:</span><span class="truncate ml-2 text-gray-300">${product.notes?.heart || 'Floral'}</span></div>
+                            <div class="text-gray-400 flex justify-between"><span class="text-gold/80 uppercase font-medium text-[9px]">Base:</span><span class="truncate ml-2 text-gray-300">${product.notes?.base || 'Wood'}</span></div>
+                        </div>
+
+                        <div class="pt-2 border-t border-gold/10 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-gray-400 block text-[10px]">From</span>
+                                <span class="text-lg font-cinzel text-gold font-bold">$${product.price50}</span>
+                            </div>
+
+                            <div class="flex space-x-2">
+                                <button onclick="openProductModal('${product.id}')" class="p-2.5 rounded-full border border-gold/30 text-gold hover:bg-gold hover:text-black transition text-xs" title="Quick View">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                                <button onclick="quickAddToCart('${product.id}')" ${isOutOfStock ? 'disabled' : ''} class="px-3 py-2 ${isOutOfStock ? 'bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed' : 'bg-gold/10 hover:bg-gold text-gold hover:text-black border border-gold/40'} text-xs uppercase font-semibold rounded-full transition">
+                                    ${isOutOfStock ? 'Sold Out' : '+ Add'}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        function filterCategory(cat) {
-            activeCategory = cat;
-            document.querySelectorAll(".category-btn").forEach(btn => {
-                if (btn.innerText.toUpperCase() === cat.toUpperCase() || (cat === "All" && btn.innerText === "All")) {
-                    btn.className = "category-btn active px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-500 text-black transition-all";
-                } else {
-                    btn.className = "category-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-neutral-900 text-gray-300 border border-neutral-800 hover:border-amber-500 transition-all";
-                }
+        function filterCatalog(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-black');
+                btn.classList.add('text-gray-400', 'border-gold/20');
             });
-            renderCatalog();
-        }
+            event.target.classList.add('bg-gold', 'text-black');
+            event.target.classList.remove('text-gray-400', 'border-gold/20');
 
-        // SCENT QUIZ
-        function selectQuizMood(mood) {
-            let match = products[0];
-            if (mood === 'fresh') match = products.find(p => p.category === 'Fresh Citrus') || products[0];
-            if (mood === 'romantic') match = products.find(p => p.category === 'Floral') || products[0];
-
-            document.getElementById("quizStep1").classList.add("hidden");
-            const resCard = document.getElementById("recommendedPerfumeCard");
-            resCard.innerHTML = `
-                <div class="flex items-center space-x-4">
-                    <img src="${match.image}" class="w-16 h-16 rounded-lg object-cover border border-amber-500/30">
-                    <div>
-                        <h4 class="font-serif font-bold text-white text-lg">${match.name}</h4>
-                        <p class="text-xs text-amber-400 font-semibold">PKR ${match.price.toLocaleString()}</p>
-                    </div>
-                </div>
-                <p class="text-xs text-gray-400 mt-3">${match.description}</p>
-                <button onclick="addToCart('${match.id}')" class="mt-4 w-full py-2 bg-amber-500 text-black font-bold text-xs uppercase tracking-widest rounded-lg">Add Match To Cart</button>
-            `;
-            document.getElementById("quizResult").classList.remove("hidden");
-        }
-
-        function resetQuiz() {
-            document.getElementById("quizResult").classList.add("hidden");
-            document.getElementById("quizStep1").classList.remove("hidden");
-        }
-
-        // BESPOKE STUDIO
-        function updateStudioPreview() {
-            const baseSelect = document.getElementById("studioBaseSelect").value;
-            const engraveText = document.getElementById("studioEngraveInput").value || "Your Name";
-            document.getElementById("previewScentName").innerText = baseSelect.toUpperCase();
-            document.getElementById("previewEngravedText").innerText = `"${engraveText}"`;
-        }
-
-        function addCustomStudioToCart() {
-            const base = document.getElementById("studioBaseSelect").value;
-            const engrave = document.getElementById("studioEngraveInput").value || "Custom Engraved";
-            const customItem = {
-                id: "custom_" + Date.now(),
-                name: `Bespoke 100ml: ${base}`,
-                price: 18500,
-                engraveText: engrave,
-                image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80"
-            };
-            cart.push(customItem);
-            updateCartUI();
-            toggleCartDrawer();
-        }
-
-        // CART ENGINE
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product || product.stock <= 0) return;
-            cart.push({...product});
-            updateCartUI();
-            toggleCartDrawer();
-        }
-
-        function updateCartUI() {
-            document.getElementById("cartBadge").innerText = cart.length;
-            const container = document.getElementById("cartItemsContainer");
-            container.innerHTML = "";
-
-            let subtotal = 0;
-            cart.forEach((item, index) => {
-                subtotal += item.price;
-                const div = document.createElement("div");
-                div.className = "flex items-center justify-between p-3 bg-neutral-950 rounded-xl border border-neutral-800 text-xs";
-                div.innerHTML = `
-                    <div class="flex items-center space-x-3">
-                        <img src="${item.image}" class="w-12 h-12 rounded object-cover">
-                        <div>
-                            <div class="font-bold text-white">${item.name}</div>
-                            ${item.engraveText ? `<div class="text-[10px] text-amber-400 italic">Engraved: "${item.engraveText}"</div>` : ''}
-                            <div class="text-amber-400 font-semibold mt-0.5">PKR ${item.price.toLocaleString()}</div>
-                        </div>
-                    </div>
-                    <button onclick="removeFromCart(${index})" class="text-gray-500 hover:text-red-400 p-2"><i class="fa-solid fa-trash-can"></i></button>
-                `;
-                container.appendChild(div);
-            });
-
-            document.getElementById("cartSubtotal").innerText = `PKR ${subtotal.toLocaleString()}`;
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function toggleCartDrawer() {
-            const drawer = document.getElementById("cartDrawer");
-            drawer.classList.toggle("hidden");
-        }
-
-        function triggerWhatsAppCheckout() {
-            if (cart.length === 0) {
-                alert("Your cart is empty!");
-                return;
+            if (category === 'all') {
+                renderCatalog(products);
+            } else {
+                renderCatalog(products.filter(p => p.category === category));
             }
-            let message = "Hello AURA PARFUMS, I would like to place an order:\n\n";
-            let total = 0;
-            cart.forEach((item, i) => {
-                message += `${i+1}. ${item.name} ${item.engraveText ? `[Engraving: "${item.engraveText}"]` : ''} - PKR ${item.price.toLocaleString()}\n`;
-                total += item.price;
-            });
-            message += `\nTotal Amount: PKR ${total.toLocaleString()}`;
-            window.open(`https://wa.me/923001234567?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // ADMIN MANAGEMENT ENGINE
+        // ADMIN PANEL ENGINE
         function toggleAdminModal() {
-            document.getElementById("adminModal").classList.toggle("hidden");
+            document.getElementById('admin-modal').classList.toggle('hidden');
         }
 
         function verifyAdminPin() {
-            const pin = document.getElementById("adminPinInput").value;
-            if (pin === "1234") {
-                document.getElementById("adminAuthScreen").classList.add("hidden");
-                document.getElementById("adminDashboard").classList.remove("hidden");
+            const pin = document.getElementById('admin-pin-input').value;
+            if (pin === '1234') {
+                document.getElementById('admin-auth-screen').classList.add('hidden');
+                document.getElementById('admin-dashboard-screen').classList.remove('hidden');
                 renderAdminTable();
             } else {
-                alert("Invalid Admin PIN. Try 1234");
+                alert('Incorrect Admin PIN. Try 1234');
             }
         }
 
         function renderAdminTable() {
-            const tbody = document.getElementById("adminProductTableBody");
-            tbody.innerHTML = "";
-            document.getElementById("adminTotalItemsCount").innerText = products.length;
+            const tbody = document.getElementById('admin-table-body');
+            tbody.innerHTML = '';
 
             products.forEach(p => {
-                const tr = document.createElement("tr");
-                tr.className = "hover:bg-neutral-950/60 transition-colors";
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-white/5 transition-colors';
                 tr.innerHTML = `
-                    <td class="p-3 flex items-center space-x-3">
-                        <img src="${p.image}" class="w-10 h-10 rounded object-cover">
-                        <div>
-                            <div class="font-bold text-white">${p.name}</div>
-                            <div class="text-[10px] text-gray-500">${p.id}</div>
-                        </div>
-                    </td>
-                    <td class="p-3">${p.category}</td>
-                    <td class="p-3 font-semibold text-amber-400">PKR ${p.price.toLocaleString()}</td>
-                    <td class="p-3">${p.stock} units</td>
-                    <td class="p-3">
-                        ${p.stock > 0 
-                            ? `<span class="px-2 py-0.5 bg-emerald-950 text-emerald-400 rounded text-[10px] font-bold">IN STOCK</span>` 
-                            : `<span class="px-2 py-0.5 bg-rose-950 text-rose-400 rounded text-[10px] font-bold">OUT OF STOCK</span>`}
-                    </td>
+                    <td class="p-3 font-bold text-white">${p.name}</td>
+                    <td class="p-3 uppercase text-[10px] text-gold">${p.category}</td>
+                    <td class="p-3 text-gold font-semibold">$${p.price50} / $${p.price100}</td>
+                    <td class="p-3 font-semibold ${p.stock > 0 ? 'text-emerald-400' : 'text-rose-400'}">${p.stock} units</td>
                     <td class="p-3 text-right space-x-2">
-                        <button onclick="editProduct('${p.id}')" class="px-2.5 py-1 bg-amber-500/20 text-amber-400 rounded hover:bg-amber-500/40">Edit</button>
-                        <button onclick="deleteProduct('${p.id}')" class="px-2.5 py-1 bg-red-500/20 text-red-400 rounded hover:bg-red-500/40">Delete</button>
+                        <button onclick="editProduct('${p.id}')" class="px-2.5 py-1 bg-gold/20 text-gold rounded border border-gold/30 hover:bg-gold hover:text-black transition">Edit</button>
+                        <button onclick="deleteProduct('${p.id}')" class="px-2.5 py-1 bg-rose-900/40 text-rose-300 rounded border border-rose-500/30 hover:bg-rose-600 hover:text-white transition">Delete</button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -748,61 +838,86 @@
         }
 
         function openProductFormModal(productId = null) {
-            document.getElementById("productFormModal").classList.remove("hidden");
-            const form = document.getElementById("productForm");
-            form.reset();
-
+            document.getElementById('product-form-modal').classList.remove('hidden');
             if (productId) {
                 const p = products.find(prod => prod.id === productId);
                 if (p) {
-                    document.getElementById("formModalTitle").innerText = "Edit Fragrance";
-                    document.getElementById("formProductId").value = p.id;
-                    document.getElementById("formName").value = p.name;
-                    document.getElementById("formCategory").value = p.category;
-                    document.getElementById("formPrice").value = p.price;
-                    document.getElementById("formStock").value = p.stock;
-                    document.getElementById("formImage").value = p.image;
-                    document.getElementById("formTopNotes").value = p.topNotes || "";
-                    document.getElementById("formHeartNotes").value = p.heartNotes || "";
-                    document.getElementById("formBaseNotes").value = p.baseNotes || "";
-                    document.getElementById("formDescription").value = p.description || "";
+                    document.getElementById('form-modal-title').innerText = 'Edit Perfume';
+                    document.getElementById('form-product-id').value = p.id;
+                    document.getElementById('form-name').value = p.name;
+                    document.getElementById('form-category').value = p.category;
+                    document.getElementById('form-price50').value = p.price50;
+                    document.getElementById('form-price100').value = p.price100;
+                    document.getElementById('form-stock').value = p.stock;
+                    document.getElementById('form-tagline').value = p.tagline || '';
+                    document.getElementById('form-description').value = p.description || '';
+                    document.getElementById('form-top-notes').value = p.notes?.top || '';
+                    document.getElementById('form-heart-notes').value = p.notes?.heart || '';
+                    document.getElementById('form-base-notes').value = p.notes?.base || '';
                 }
             } else {
-                document.getElementById("formModalTitle").innerText = "Add New Fragrance";
-                document.getElementById("formProductId").value = "";
+                document.getElementById('form-modal-title').innerText = 'Add New Perfume';
+                document.getElementById('form-product-id').value = '';
+                document.getElementById('form-name').value = '';
+                document.getElementById('form-price50').value = '150';
+                document.getElementById('form-price100').value = '220';
+                document.getElementById('form-stock').value = '10';
+                document.getElementById('form-tagline').value = '';
+                document.getElementById('form-description').value = '';
             }
         }
 
         function closeProductFormModal() {
-            document.getElementById("productFormModal").classList.add("hidden");
+            document.getElementById('product-form-modal').classList.add('hidden');
         }
 
         function saveProductForm(e) {
             e.preventDefault();
-            const id = document.getElementById("formProductId").value;
-            const name = document.getElementById("formName").value;
-            const category = document.getElementById("formCategory").value;
-            const price = parseFloat(document.getElementById("formPrice").value);
-            const stock = parseInt(document.getElementById("formStock").value);
-            const image = document.getElementById("formImage").value;
-            const topNotes = document.getElementById("formTopNotes").value;
-            const heartNotes = document.getElementById("formHeartNotes").value;
-            const baseNotes = document.getElementById("formBaseNotes").value;
-            const description = document.getElementById("formDescription").value;
+            const id = document.getElementById('form-product-id').value;
+            const name = document.getElementById('form-name').value;
+            const category = document.getElementById('form-category').value;
+            const price50 = parseFloat(document.getElementById('form-price50').value);
+            const price100 = parseFloat(document.getElementById('form-price100').value);
+            const stock = parseInt(document.getElementById('form-stock').value);
+            const tagline = document.getElementById('form-tagline').value;
+            const description = document.getElementById('form-description').value;
+            const top = document.getElementById('form-top-notes').value;
+            const heart = document.getElementById('form-heart-notes').value;
+            const base = document.getElementById('form-base-notes').value;
+
+            const categoryLabels = {
+                woody: 'Woody & Amber',
+                floral: 'Floral & Fresh',
+                oriental: 'Oriental & Spice',
+                gourmand: 'Gourmand'
+            };
+
+            const productData = {
+                id: id || 'prod-' + Date.now(),
+                name,
+                category,
+                categoryLabel: categoryLabels[category] || category,
+                price50,
+                price100,
+                stock,
+                tagline,
+                description,
+                rating: 5.0,
+                badge: 'Haute Edition',
+                color: 'from-amber-900/40 to-black',
+                notes: { top, heart, base }
+            };
 
             if (id) {
                 const index = products.findIndex(p => p.id === id);
-                if (index !== -1) {
-                    products[index] = { id, name, category, price, stock, image, topNotes, heartNotes, baseNotes, description };
-                }
+                if (index !== -1) products[index] = productData;
             } else {
-                const newId = "p_" + Date.now();
-                products.push({ id: newId, name, category, price, stock, image, topNotes, heartNotes, baseNotes, description });
+                products.push(productData);
             }
 
             saveProductsToStorage();
             renderAdminTable();
-            renderCatalog();
+            renderCatalog(products);
             closeProductFormModal();
         }
 
@@ -811,22 +926,333 @@
         }
 
         function deleteProduct(id) {
-            if (confirm("Are you sure you want to remove this perfume from your store?")) {
+            if (confirm("Are you sure you want to delete this perfume?")) {
                 products = products.filter(p => p.id !== id);
                 saveProductsToStorage();
                 renderAdminTable();
-                renderCatalog();
+                renderCatalog(products);
             }
         }
 
-        function exportDataJSON() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(products, null, 2));
-            const dlAnchor = document.createElement('a');
-            dlAnchor.setAttribute("href", dataStr);
-            dlAnchor.setAttribute("download", "aura_parfums_backup.json");
-            document.body.appendChild(dlAnchor);
-            dlAnchor.click();
-            dlAnchor.remove();
+        // BLENDER & CART LOGIC
+        function initBlenderUI() {
+            renderBlenderCategory('top', BLENDER_OPTIONS.top);
+            renderBlenderCategory('heart', BLENDER_OPTIONS.heart);
+            renderBlenderCategory('base', BLENDER_OPTIONS.base);
+            updateBlendSummaryText();
+        }
+
+        function renderBlenderCategory(type, options) {
+            const container = document.getElementById(`${type}-note-options`);
+            container.innerHTML = '';
+
+            options.forEach(opt => {
+                const isSelected = selectedBlender[type].id === opt.id;
+                const btn = document.createElement('button');
+                btn.className = `p-3 rounded-xl border text-left transition text-xs flex flex-col justify-between ${isSelected ? 'border-gold bg-gold/20 text-gold' : 'border-gold/20 bg-black/40 text-gray-400 hover:border-gold/50'}`;
+                btn.onclick = () => selectBlenderNote(type, opt);
+                btn.innerHTML = `<span class="font-semibold block text-gray-200">${opt.name}</span><span class="text-[10px] opacity-75 mt-1 block">${opt.desc}</span>`;
+                container.appendChild(btn);
+            });
+        }
+
+        function selectBlenderNote(type, option) {
+            selectedBlender[type] = option;
+            document.getElementById(`${type}-desc`).innerText = option.name;
+            renderBlenderCategory(type, BLENDER_OPTIONS[type]);
+            updateBlendSummaryText();
+        }
+
+        function updateEngravingPreview() {
+            const input = document.getElementById('engraving-input').value;
+            selectedBlender.engraving = input.trim() ? input.toUpperCase() : 'MY SIGNATURE';
+            document.getElementById('engraving-preview-text').innerText = selectedBlender.engraving;
+        }
+
+        function updateBlendSummaryText() {
+            const summary = `${selectedBlender.top.name.split(' ')[0]} + ${selectedBlender.heart.name.split(' ')[0]} + ${selectedBlender.base.name.split(' ')[0]}`;
+            document.getElementById('blend-summary-text').innerText = summary;
+        }
+
+        function addCustomBlendToCart() {
+            cart.push({
+                id: 'custom-' + Date.now(),
+                name: 'Custom Bespoke Perfume',
+                details: `${selectedBlender.top.name} / ${selectedBlender.heart.name} / ${selectedBlender.base.name}`,
+                engraving: selectedBlender.engraving,
+                size: '100ml',
+                price: 140,
+                quantity: 1,
+                isCustom: true
+            });
+
+            updateCartBadge();
+            renderCartDrawer();
+            toggleCartDrawer();
+        }
+
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const modal = document.getElementById('product-modal');
+            const content = document.getElementById('product-modal-content');
+
+            content.innerHTML = `
+                <button onclick="closeProductModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gold text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="p-8 bg-gradient-to-b ${product.color || 'from-amber-900/40 to-black'} rounded-2xl flex items-center justify-center">
+                        <div class="w-32 h-48 relative flex flex-col items-center justify-center">
+                            <div class="w-12 h-8 bg-gradient-to-b from-gold-light to-gold rounded-t-sm shadow"></div>
+                            <div class="w-8 h-3 bg-gold/80"></div>
+                            <div class="w-[110px] h-36 bg-gradient-to-b from-white/20 via-white/5 to-black/80 rounded-2xl border-2 border-gold/40 backdrop-blur-md flex items-center justify-center p-3 shadow-2xl">
+                                <div class="border border-gold/30 w-full h-full rounded flex items-center justify-center">
+                                    <span class="text-[9px] font-cinzel text-gold text-center tracking-widest font-bold">${product.name.toUpperCase()}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-5">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold">${product.categoryLabel || product.category}</span>
+                            <h2 class="font-cinzel text-2xl font-bold text-gray-100 mt-1">${product.name}</h2>
+                            <p class="text-gray-300 text-xs font-light mt-2 leading-relaxed">${product.description}</p>
+                        </div>
+                        <div class="space-y-2 bg-black/40 p-4 rounded-xl border border-gold/20 text-xs">
+                            <h4 class="text-gold font-cinzel font-semibold uppercase text-[10px] tracking-wider mb-2">Olfactive Pyramid</h4>
+                            <div><strong class="text-gold/80">Top Notes:</strong> <span class="text-gray-300">${product.notes?.top || 'N/A'}</span></div>
+                            <div><strong class="text-gold/80">Heart Notes:</strong> <span class="text-gray-300">${product.notes?.heart || 'N/A'}</span></div>
+                            <div><strong class="text-gold/80">Base Notes:</strong> <span class="text-gray-300">${product.notes?.base || 'N/A'}</span></div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-xs uppercase tracking-widest text-gold">Select Volume</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="selectModalSize(50, ${product.price50})" id="btn-size-50" class="size-btn p-3 rounded-xl border border-gold bg-gold/20 text-gold text-xs font-semibold flex justify-between items-center">
+                                    <span>50 ML EDP</span>
+                                    <span>$${product.price50}</span>
+                                </button>
+                                <button onclick="selectModalSize(100, ${product.price100})" id="btn-size-100" class="size-btn p-3 rounded-xl border border-gold/20 bg-black/40 text-gray-400 text-xs font-semibold flex justify-between items-center hover:border-gold">
+                                    <span>100 ML EDP</span>
+                                    <span>$${product.price100}</span>
+                                </button>
+                            </div>
+                        </div>
+                        <button onclick="addModalItemToCart('${product.id}')" ${product.stock <= 0 ? 'disabled' : ''} class="w-full py-3.5 ${product.stock <= 0 ? 'bg-gray-800 text-gray-500 cursor-not-allowed' : 'bg-gradient-to-r from-gold to-gold-dark text-black'} font-bold text-xs uppercase tracking-widest rounded-xl hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition">
+                            ${product.stock <= 0 ? 'Out of Stock' : 'Add To Shopping Bag'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            window.selectedModalSize = 50;
+            window.selectedModalPrice = product.price50;
+            modal.classList.remove('hidden');
+        }
+
+        function selectModalSize(size, price) {
+            window.selectedModalSize = size;
+            window.selectedModalPrice = price;
+            document.getElementById('btn-size-50').className = size === 50 ? "size-btn p-3 rounded-xl border border-gold bg-gold/20 text-gold text-xs font-semibold flex justify-between items-center" : "size-btn p-3 rounded-xl border border-gold/20 bg-black/40 text-gray-400 text-xs font-semibold flex justify-between items-center hover:border-gold";
+            document.getElementById('btn-size-100').className = size === 100 ? "size-btn p-3 rounded-xl border border-gold bg-gold/20 text-gold text-xs font-semibold flex justify-between items-center" : "size-btn p-3 rounded-xl border border-gold/20 bg-black/40 text-gray-400 text-xs font-semibold flex justify-between items-center hover:border-gold";
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function addModalItemToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product || product.stock <= 0) return;
+            const size = window.selectedModalSize || 50;
+            const price = window.selectedModalPrice || product.price50;
+
+            const existingIndex = cart.findIndex(item => item.id === product.id && item.size === `${size}ml`);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ id: product.id, name: product.name, size: `${size}ml`, price: price, quantity: 1, isCustom: false });
+            }
+
+            closeProductModal();
+            updateCartBadge();
+            renderCartDrawer();
+            toggleCartDrawer();
+        }
+
+        function quickAddToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product || product.stock <= 0) return;
+
+            const existingIndex = cart.findIndex(item => item.id === product.id && item.size === '50ml');
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ id: product.id, name: product.name, size: '50ml', price: product.price50, quantity: 1, isCustom: false });
+            }
+
+            updateCartBadge();
+            renderCartDrawer();
+            toggleCartDrawer();
+        }
+
+        function toggleCartDrawer() {
+            document.getElementById('cart-drawer').classList.toggle('translate-x-full');
+        }
+
+        function updateCartBadge() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-badge').innerText = totalCount;
+        }
+
+        function renderCartDrawer() {
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="text-center py-12 text-gray-500 space-y-3"><i class="fa-solid fa-box-open text-3xl text-gold/30"></i><p class="text-xs uppercase tracking-widest font-light">Your shopping bag is empty.</p></div>`;
+                document.getElementById('cart-subtotal').innerText = '$0';
+                return;
+            }
+
+            let subtotal = 0;
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.quantity;
+                const el = document.createElement('div');
+                el.className = "glass-panel p-4 rounded-xl flex items-center justify-between gap-3";
+                el.innerHTML = `
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-xs font-semibold text-gray-100 truncate">${item.name}</h4>
+                        <p class="text-[10px] text-gray-400 mt-0.5">${item.size} ${item.isCustom ? `• Engraving: ${item.engraving}` : ''}</p>
+                        <p class="text-xs text-gold font-cinzel font-bold mt-1">$${item.price}</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="updateCartQty(${index}, -1)" class="w-6 h-6 rounded bg-black/60 border border-gold/30 text-gold text-xs flex items-center justify-center hover:border-gold">-</button>
+                        <span class="text-xs font-bold text-gray-200 w-4 text-center">${item.quantity}</span>
+                        <button onclick="updateCartQty(${index}, 1)" class="w-6 h-6 rounded bg-black/60 border border-gold/30 text-gold text-xs flex items-center justify-center hover:border-gold">+</button>
+                    </div>
+                    <button onclick="removeCartItem(${index})" class="text-gray-500 hover:text-red-400 text-xs p-1"><i class="fa-solid fa-trash-can"></i></button>
+                `;
+                container.appendChild(el);
+            });
+
+            document.getElementById('cart-subtotal').innerText = `$${subtotal}`;
+        }
+
+        function updateCartQty(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) cart.splice(index, 1);
+            updateCartBadge();
+            renderCartDrawer();
+        }
+
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            updateCartBadge();
+            renderCartDrawer();
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) return;
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('checkout-total-price').innerText = `$${subtotal}`;
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+            document.getElementById('checkout-content').innerHTML = `
+                <div class="text-center py-8 space-y-4">
+                    <i class="fa-solid fa-circle-check text-4xl text-gold animate-bounce"></i>
+                    <h3 class="font-cinzel text-2xl font-bold text-gray-100">Order Confirmed</h3>
+                    <p class="text-xs text-gray-400 max-w-sm mx-auto leading-relaxed">
+                        Thank you for ordering with AURA PARFUMS. Your bespoke fragrance experience is being prepared in our Grasse laboratory with utmost care.
+                    </p>
+                    <button onclick="closeCheckoutModal(); cart=[]; updateCartBadge(); renderCartDrawer(); toggleCartDrawer();" class="px-8 py-3 bg-gold text-black font-bold text-xs uppercase tracking-widest rounded-full hover:bg-gold-light transition">
+                        Return To Atelier
+                    </button>
+                </div>
+            `;
+        }
+
+        function openQuizModal() {
+            currentQuizStep = 0;
+            quizAnswers = [];
+            renderQuizStep();
+            document.getElementById('quiz-modal').classList.remove('hidden');
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quiz-modal').classList.add('hidden');
+        }
+
+        function renderQuizStep() {
+            const container = document.getElementById('quiz-step-container');
+
+            if (currentQuizStep < QUIZ_STEPS.length) {
+                const step = QUIZ_STEPS[currentQuizStep];
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center text-xs text-gold">
+                            <span>QUESTION ${currentQuizStep + 1} OF ${QUIZ_STEPS.length}</span>
+                            <span class="tracking-widest font-cinzel">SCENT FINDER</span>
+                        </div>
+                        <div>
+                            <h3 class="font-cinzel text-xl md:text-2xl font-bold text-gray-100">${step.question}</h3>
+                            <p class="text-gray-400 text-xs font-light mt-1">${step.subtitle}</p>
+                        </div>
+                        <div class="space-y-3">
+                            ${step.options.map(opt => `
+                                <button onclick="answerQuiz('${opt.tag}')" class="w-full p-4 rounded-2xl glass-panel text-left hover:border-gold flex items-center gap-4 group transition">
+                                    <div class="w-10 h-10 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition">
+                                        <i class="fa-solid ${opt.icon}"></i>
+                                    </div>
+                                    <span class="text-xs font-medium text-gray-200 group-hover:text-gold transition">${opt.label}</span>
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else {
+                const counts = {};
+                quizAnswers.forEach(tag => counts[tag] = (counts[tag] || 0) + 1);
+                const winningTag = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b, 'woody');
+                const matchedProduct = products.find(p => p.category === winningTag) || products[0];
+
+                container.innerHTML = `
+                    <div class="text-center space-y-6 py-4">
+                        <span class="text-gold text-xs tracking-widest uppercase font-semibold">Your Match Discovered</span>
+                        <h3 class="font-cinzel text-2xl font-bold text-gold-gradient">Your Recommended Perfume</h3>
+                        <div class="glass-panel-gold p-6 rounded-2xl flex flex-col items-center">
+                            <h4 class="font-cinzel text-lg text-gray-100 font-bold">${matchedProduct.name}</h4>
+                            <p class="text-xs text-gray-400 font-light mt-1 max-w-sm">${matchedProduct.tagline}</p>
+                            <span class="text-sm font-cinzel text-gold font-bold mt-2">$${matchedProduct.price50}</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <button onclick="closeQuizModal(); openProductModal('${matchedProduct.id}');" class="flex-1 py-3 bg-gradient-to-r from-gold to-gold-dark text-black font-bold text-xs uppercase tracking-widest rounded-xl transition">
+                                View Perfume Details
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function answerQuiz(tag) {
+            quizAnswers.push(tag);
+            currentQuizStep++;
+            renderQuizStep();
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
         }
     </script>
 </body>
